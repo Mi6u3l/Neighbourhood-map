@@ -8,6 +8,8 @@
     <!--Google Maps-->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places" ></script> 
     <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/offline-language-english.css">
+    <link rel="stylesheet" href="css/offline-theme-slide-indicator.css">
   </head>
 <body>
     <div id="googleMap-API-error"></div>
@@ -18,8 +20,8 @@
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Find</div>
-            <input data-bind="value: exploreKeyword" type="search" name ="search" class="form-control" id="explore-venues" placeholder="Popular Places">
-          </div>             
+            <select data-bind="options: venueTypeOptions, optionsCaption: 'Choose..', value: selectedVenueType, optionsValue: 'name'" type="search" name ="search" class="form-control" id="explore-venues" placeholder="Popular Places">
+          </div>
         </div>
         <!-- Search top selected venues by location -->
         <div class="form-group">
@@ -83,4 +85,5 @@
    <script src="js/loadcss.js" async></script>
   <script src="js/app.js" async></script>
   <script src="js/jquery.swipebox.js" async></script>
+  <script src="js/offline.min.js" async></script>
 </html>

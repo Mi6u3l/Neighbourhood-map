@@ -1,7 +1,14 @@
+
 /*
  * Venue model.
  * The Venue model that initialize and store venue data
  */
+
+ var VenueTypeModel = function(data){
+    var self = this;
+    self.name = ko.observable(data.name);
+};
+
 var Venue = function(data, foursquareID) {
 	// data that is always defined or need no formatting
 	this.id = data.venue.id;
@@ -31,7 +38,7 @@ var Venue = function(data, foursquareID) {
 
 	this.featuredPhoto = this.getFeaturedPhoto(data);
 
-}
+};
 
 // functions for Venue data error handlings and formmatting
 Venue.prototype = {
@@ -76,7 +83,7 @@ Venue.prototype = {
   			return this.photoPrefix + 'width100' + this.photoSuffix;
 		}
 	}
-}
+};
 
 
 
@@ -97,19 +104,30 @@ function AppViewModel() {
 		infowindow;
 
 	var venueMarkers = [];
-	var defaultExploreKeyword = 'best nearby';
 	var defaultneighbourhood = 'Dublin';
 	var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
 	var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-	self.exploreKeyword = ko.observable(''); // explore neighbourhood keywords
+	self.venueTypeOptions = ko.observableArray([
+        new VenueTypeModel({ name: "Food"}),
+        new VenueTypeModel({ name: "Coffee"}),
+        new VenueTypeModel({ name: "Nightlife"}),
+        new VenueTypeModel({ name: "Fun"}),
+        new VenueTypeModel({ name: "Shopping"})]);
+
+	self.selectedVenueType = ko.observable();
+
+
+
+
+	//self.exploreKeyword = ko.observableArray(['Shop']);
 	self.neighbourhood = ko.observable(defaultneighbourhood);	// neighbourhood location
 	self.currentneighbourhoodMarker = ko.observable(''); // current neighbourhood marker
 	self.formattedAddress = ko.observable('');	// formatted neighbourhood location address
 	self.topPicks = ko.observableArray('');	// most popular foursquare picks depending on neighbourhood keywords and location
 	self.selectedVenue = ko.observable(''); // selected venue info
 	self.selectedMarker = ko.observable(''); // selected marker info
-	self.displayVenuesList = ko.observable('false'); // boolean value fore venues list display
+	self.displayVenuesList = ko.observable('false'); // boolean value for venues list display
 
 	/**
  	 * Get month name according to javascript getMonth() method return value
@@ -136,13 +154,13 @@ function AppViewModel() {
 		update: function(el, va, ab) {
 			ab().html && va()(ab().html);
 		}
-	}
+	};
 
 
 	// update function for venues list display
 	self.updateVObservable = function() {
 		self.displayVenuesList(!self.displayVenuesList());
-	}
+	};
 
 	// takes user's input in neighbourhood address
 	// update displays for map and popular venues
@@ -167,7 +185,8 @@ function AppViewModel() {
 
 	// when user update explore keyword in input bar,
 	// update displays for map and popular venues
-	self.exploreKeyword.subscribe(self.computedneighbourhood);
+	//self.exploreKeyword.subscribe(self.computedneighbourhood);
+	self.selectedVenueType.subscribe(self.computedneighbourhood);
 
 	/**
  	 * When venue item is clicked in venues listing,
@@ -188,7 +207,7 @@ function AppViewModel() {
 		map.panTo(venuePosition);
 		selectedMarkerBounce(venue.marker);
 
-	}
+	};
 
 	// empty venuMarkers array, remove all venue markers on map
 	// this function gets called once neighbourhood keywords or address is updated
@@ -269,7 +288,7 @@ function AppViewModel() {
 			self.selectedMarker().setAnimation(null); 
 		});
 
-	};
+	}
 
 	/**
  	 * Get best nearby neighbourhood venues data from foursquare API,
@@ -280,9 +299,15 @@ function AppViewModel() {
  	function getFoursquareData() {
 
 		var foursquareBaseURL = 'https://api.foursquare.com/v2/venues/explore?';
-  		var foursquareID = 'client_id=T3VKC34CMHTDB5YPR3TRA044A51EHCMPBJII433EB1TXWH1A&client_secret=XTWLWF52NASGLCULU0MF1YV1300CC0IDLW4DQXV2I3ROVDOC';
+  		var foursquareID = 'client_id=FQ0U4ULXEIUH35IVGSWWVXRNXSIYVOTL4OVCJE3U5DZV1ZGF&client_secret=KVV5QMBN02SXDTOFTVEANCBG1SKJSN5OVIYMDAJDYA05VMM2';
   		var neighbourhoodLL = '&ll=' + placeLat + ',' + placeLon;
-  		var query = '&query=' + self.exploreKeyword();
+  		var query = '&query=';
+  		if (self.selectedVenueType() !== undefined)
+  		{
+  			query = '&query=' + self.selectedVenueType();
+  		}
+
+  		
   		var foursquareURL = foursquareBaseURL + foursquareID + '&v=20130815&venuePhotos=1' + neighbourhoodLL + query;
 
   		$.ajax({
@@ -297,6 +322,7 @@ function AppViewModel() {
   				initialFoursquareData.forEach(function(venueItem) {
   					self.topPicks.push( new Venue(venueItem, foursquareID) );
   				});
+
 				
 				// retrieve and set foursquare venue photos 
 				// set marker for each venue
@@ -307,7 +333,7 @@ function AppViewModel() {
 
 				// set bounds according to suggestedBounds from foursquare data resonse
 				var tempBounds = data.response.suggestedBounds;
-				if (tempBounds != undefined) {
+				if (tempBounds !== undefined) {
 					bounds = new google.maps.LatLngBounds(
 						new google.maps.LatLng(tempBounds.sw.lat, tempBounds.sw.lng),
 						new google.maps.LatLng(tempBounds.ne.lat, tempBounds.ne.lng));
