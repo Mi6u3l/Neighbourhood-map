@@ -6,10 +6,18 @@
 
     <title>Neibourhood Map Project</title>
     <!--Google Maps-->
+    <script src="js/Offline.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places" ></script> 
-    <link rel="stylesheet" href="css/style.css">  
-    <link rel="stylesheet" href="css/offline-language-english.css">
-    <link rel="stylesheet" href="css/offline-theme-slide-indicator.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/offline-language-english.css"> 
+    <link rel="stylesheet" href="css/offline-theme-slide-indicator.css"> 
+    <script type="text/javascript">
+      var run = function(){
+        if (Offline.state === 'up')
+        Offline.check();
+      }
+        setInterval(run, 5000);
+    </script> 
   </head>
 <body>
     <div id="googleMap-API-error"></div>
@@ -81,9 +89,10 @@
   <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
   <!-- add async js source to avoid render blocking -->
   <script src="js/knockout-3.2.0.js" async></script>
-   <script src="js/skycons.js" async></script>
-   <script src="js/loadcss.js" async></script>
+  <script src="js/skycons.js" async></script>
+  <script src="js/loadcss.js" async></script>
   <script src="js/app.js" async></script>
   <script src="js/jquery.swipebox.js" async></script>
-  <script src="js/offline.min.js" async></script>
+  
+
 </html>

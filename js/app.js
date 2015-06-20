@@ -342,7 +342,13 @@ function AppViewModel() {
 			},
 			complete: function() {
 				if(self.topPicks().length === 0)
+				{
 				 	$('#foursquare-API-error').html('<h2>No result available.</h2><h2>Please change your keywords.</h2>');
+				}
+				else
+				{
+					$('#foursquare-API-error').html('');
+				}	
 			},
       		error: function( data ) {
       			$('#foursquare-API-error').html('<h2>There are errors when retrieving venue data. Please try refresh page later.</h2>');
@@ -506,6 +512,10 @@ function AppViewModel() {
 		if (status != google.maps.places.PlacesServiceStatus.OK) {
     		$('#googleMap-API-error').html('<h2>There are errors when retrieving map data.</h2><h2>Please try refresh page later.</h2>'); 
     		return;
+  		}
+  		else
+  		{
+  			$('#googleMap-API-error').html('');
   		}
 
 		if (status == google.maps.places.PlacesServiceStatus.OK) {
