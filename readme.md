@@ -1,6 +1,6 @@
 <h1>Neighborhood Map</h1>
 <p>Neighborhood Map Project for Udacity Front-end Web Development Nanodegree.</p>
-<p><a href ="http://mi6u3l.github.io/Neighborhood-map">Demo</a></p>
+<p><a href ="http://mi6u3l.github.io/NeighborhoodMap">Demo</a></p>
 <h2>References:</h2>
 <ul>
 	<li><a href = "https://www.udacity.com/course/ud989">Javascript Design Pattern</a></li>
