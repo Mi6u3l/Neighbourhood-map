@@ -583,7 +583,7 @@ function AppViewModel() {
 	// initialize neighbourhood
 	initializeneighbourhood(defaultneighbourhood);
 
-};
+}
 
 // initialize AppViewModel 
 $(function() {
