@@ -567,7 +567,7 @@ function AppViewModel() {
 		
 		$('#map-canvas').height($(window).height());
 
-	};
+	}
 
 	// the map bounds is updated when page resizes
 	window.addEventListener('resize', function(e) {

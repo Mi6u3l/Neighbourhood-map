@@ -6,29 +6,31 @@
 
     <title>Neibourhood Map Project</title>
     <script src="js/offline.min.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places" ></script> 
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places" ></script> 
     <link rel="stylesheet" href="css/style.css"> 
     <link rel="stylesheet" href="css/offline-language-english.css"> 
     <link rel="stylesheet" href="css/offline-theme-slide-indicator.css"> 
-    <script type="text/javascript">
+    <script>
       var run = function(){
         if (Offline.state === 'up')
         Offline.check();
-      }
+      };
         setInterval(run, 5000);
     </script> 
   </head>
 <body>
     <div id="googleMap-API-error"></div>
-    <div id="map-canvas"></div>
+    <div id="map-canvas" class="map"></div>
     <div class="fixed-container">
       <form class="form-inline" role="form">
         <!-- Search top selected venues by keywords -->
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Find</div>
-            <select data-bind="options: venueTypeOptions, optionsCaption: 'Choose..', value: selectedVenueType, optionsValue: 'name'" type="search" name ="search" class="form-control" id="explore-venues" placeholder="Popular Places">
+            <select data-bind="options: venueTypeOptions, optionsCaption: 'Choose..', value: selectedVenueType, optionsValue: 'name'" name ="search" class="form-control" id="explore-venues"></select>
+               <br>
           </div>
+
         </div>
         <!-- Search top selected venues by location -->
         <div class="form-group">
@@ -76,22 +78,20 @@
             </div>
           </div>
           <div class="right">
-            <img data-bind="attr: {src: featuredPhoto, id: id}" class="featured-photo"/>
+            <img data-bind="attr: {src: featuredPhoto, id: id}" class="featured-photo" alt="featured photo" />
           </div>
         </div>  
         <!-- /ko -->         
       </div>
     </div>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <!-- use Web Font Loader to load fonts: https://github.com/typekit/webfontloader -->
+      <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
+      <!-- add async js source to avoid render blocking -->
+      <script src="js/knockout-3.2.0.js" async></script>
+      <script src="js/skycons.js" async></script>
+      <script src="js/loadcss.js" async></script>
+      <script src="js/app.js" async></script>
+      <script src="js/jquery.swipebox.js" async></script>
   </body>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- use Web Font Loader to load fonts: https://github.com/typekit/webfontloader -->
-  <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
-  <!-- add async js source to avoid render blocking -->
-  <script src="js/knockout-3.2.0.js" async></script>
-  <script src="js/skycons.js" async></script>
-  <script src="js/loadcss.js" async></script>
-  <script src="js/app.js" async></script>
-  <script src="js/jquery.swipebox.js" async></script>
-  
-
 </html>
