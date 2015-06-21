@@ -4889,7 +4889,7 @@ th.visible-print, td.visible-print {
     overflow: auto;
     margin-top: 5px;
     width: 460px;
-    height: 540px;
+    height: 450px;
     background: #fff;
 }
 .forecast-listing-box .forecast-listing-item, .venues-listing-box .venue-listing-item {
@@ -5031,7 +5031,7 @@ th.visible-print, td.visible-print {
 @media only screen and (max-width:768px) {
     .fixed-container {
     width: 100%;
-    height:310px;
+    
 }
 .search-button {
     display: none;

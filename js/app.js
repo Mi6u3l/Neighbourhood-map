@@ -116,13 +116,8 @@ function AppViewModel() {
         new VenueTypeModel({ name: "Shopping"})]);
 
 	self.selectedVenueType = ko.observable();
-
-
-
-
-	//self.exploreKeyword = ko.observableArray(['Shop']);
 	self.neighbourhood = ko.observable(defaultneighbourhood);	// neighbourhood location
-	self.currentneighbourhoodMarker = ko.observable(''); // current neighbourhood marker
+	self.currentneighbourhoodMarker = ko.observable(''); // curre nt neighbourhood marker
 	self.formattedAddress = ko.observable('');	// formatted neighbourhood location address
 	self.topPicks = ko.observableArray('');	// most popular foursquare picks depending on neighbourhood keywords and location
 	self.selectedVenue = ko.observable(''); // selected venue info
@@ -169,6 +164,8 @@ function AppViewModel() {
 		if (!isEmpty(self.neighbourhood())) {
 			removeVenueMarkers();
 			self.topPicks([]);
+			
+			//filter top picks from list view
 			getneighbourhood(self.neighbourhood());		
 		} 
 		
