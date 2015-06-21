@@ -4,8 +4,6 @@
 <h2>References:</h2>
 <ul>
 	<li><a href = "https://www.udacity.com/course/ud989">Javascript Design Pattern</a></li>
-	<li><a href ="https://github.com/DawoonC/dw-neighborhood">DawoonC's DW Neighborhood</a></li>
-	<li><a href="https://github.com/bahalps/frontend-nanodegree-neighborhood-map">bahalps's Neighborhood Map: Boston</a></li>
 	<li><a href="http://knockoutjs.com/documentation/introduction.html">Knockout Documentation</a></li>
 	<li><a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Map API</a></li>
 	<li><a href="https://developer.foursquare.com/">Foursquare API</a></li>
