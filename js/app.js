@@ -122,7 +122,7 @@ function AppViewModel() {
 	self.topPicks = ko.observableArray('');	// most popular foursquare picks depending on neighbourhood keywords and location
 	self.selectedVenue = ko.observable(''); // selected venue info
 	self.selectedMarker = ko.observable(''); // selected marker info
-	self.displayVenuesList = ko.observable('false'); // boolean value for venues list display
+	self.displayVenueList = ko.observable('false'); // boolean value for venues list display
 
 	/**
  	 * Get month name according to javascript getMonth() method return value
@@ -154,7 +154,7 @@ function AppViewModel() {
 
 	// update function for venues list display
 	self.updateVObservable = function() {
-		self.displayVenuesList(!self.displayVenuesList());
+		self.displayVenueList(!self.displayVenueList());
 	};
 
 	// takes user's input in neighbourhood address

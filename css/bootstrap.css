@@ -4883,7 +4883,7 @@ th.visible-print, td.visible-print {
     margin: 0;
     font-family: 'Lato', Calibri, Arial, sans-serif;
 }
-.forecast-listing-box, .venues-listing-box {
+.forecast-listing-box, .venue-listing-box {
     overflow-x: hidden;
     display: block;
     overflow: auto;
@@ -4892,19 +4892,19 @@ th.visible-print, td.visible-print {
     height: 450px;
     background: #fff;
 }
-.forecast-listing-box .forecast-listing-item, .venues-listing-box .venue-listing-item {
+.forecast-listing-box .forecast-listing-item, .venue-listing-box .venue-list-item {
     padding: 10px;
     border-bottom: 1px solid #f4f4f4;
 }
-.forecast-listing-box::-webkit-scrollbar, .venues-listing-box::-webkit-scrollbar {
+.forecast-listing-box::-webkit-scrollbar, .venue-listing-box::-webkit-scrollbar {
     width: 10px;
     overflow: visible;
 }
-.forecast-listing-box::-webkit-scrollbar-thumb, .venues-listing-box::-webkit-scrollbar-thumb {
+.forecast-listing-box::-webkit-scrollbar-thumb, .venue-listing-box::-webkit-scrollbar-thumb {
     background-color: #4d90fe;
     min-height: 30px;
 }
-.forecast-listing-box::-webkit-scrollbar-thumb:hover, .venues-listing-box::-webkit-scrollbar-thumb:hover {
+.forecast-listing-box::-webkit-scrollbar-thumb:hover, .venue-listing-box::-webkit-scrollbar-thumb:hover {
     background-color: #333;
 }
 .forecast-listing-box .forecast-listing-item {
@@ -4934,59 +4934,59 @@ th.visible-print, td.visible-print {
     font-size: 24px;
     font-weight: 400;
 }
-.venue-listing-item {
+.venue-list-item {
     padding-bottom: 10px;
 }
-.venue-listing-item:visited, .venue-listing-item:hover, .venue-listing-item:active {
+.venue-list-item:visited, .venue-list-item:hover, .venue-list-item:active {
     background: #fafafa;
 }
-.venues-listing-box .selected-venue-item {
+.venue-listing-box .selected-venue-item {
     background: #fafafa;
 }
-.venue-listing-item .glyphicon {
+.venue-list-item .glyphicon {
     padding-right: 5px;
     float: left;
     clear: left;
 }
-.venue-listing-item .content {
+.venue-list-item .content {
     word-wrap: break-word;
     float: left;
     width: 280px;
 }
-.venue-listing-item .left {
+.venue-list-item .left {
     width: 70%;
     float: left;
 }
-.venue-listing-item .left .venue-name {
+.venue-list-item .left .venue-name {
     font-size: 24px;
     line-height: 24px;
     margin-bottom: 5px;
 }
-.venue-listing-item .left .venue-sub {
+.venue-list-item .left .venue-sub {
     margin-bottom: 10px;
 }
-.venue-listing-item .left .venue-sub .venue-rating {
+.venue-list-item .left .venue-sub .venue-rating {
     float: left;
     clear: right;
 }
-.venue-listing-item .left .venue-sub .venue-rating .badge {
+.venue-list-item .left .venue-sub .venue-rating .badge {
     font-size: 30px;
     font-weight: 300;
 }
-.venue-listing-item .left .venue-sub .venue-address {
+.venue-list-item .left .venue-sub .venue-address {
     width: 230px;
     padding-left: 10px;
     float: left;
     font-size: 12px;
 }
-.venue-listing-item .left .venue-category, .venue-listing-item .left .venue-website, .venue-listing-item .left .venue-review, .venue-listing-item .left .venue-contact {
+.venue-list-item .left .venue-category, .venue-list-item .left .venue-website, .venue-list-item .left .venue-review, .venue-list-item .left .venue-contact {
     font-size: 14px;
 }
-.venue-listing-item .right {
+.venue-list-item .right {
     width: 30%;
     float: left;
 }
-.venue-listing-item .right .featured-photo {
+.venue-list-item .right .featured-photo {
     padding: 10px;
     float: right;
 }
@@ -5051,13 +5051,13 @@ th.visible-print, td.visible-print {
 .nh-info-box .current-temp-box .left .current-temp {
     font-size: 20px;
 }
-.forecast-listing-box, .venues-listing-box {
+.forecast-listing-box, .venue-listing-box {
     width: 100%;
     height:450px;    
 }
-.venue-listing-item .left .venue-sub .venue-address {
+.venue-list-item .left .venue-sub .venue-address {
     width: 70%}
-.venue-listing-item .content {
+.venue-list-item .content {
     word-wrap: break-word;
     width: 90%}
 .forecast-listing-item .right {
@@ -5065,20 +5065,20 @@ th.visible-print, td.visible-print {
 }@media only screen and (max-width:320px) {
     .fixed-container {
     width: 100%}
-.venues-listing-box {
+.venue-listing-box {
     max-width: 310px;
     max-height: 310px
 }
-.venue-listing-item .left {
+.venue-list-item .left {
     width: 60%}
-.venue-listing-item .right {
+.venue-list-item .right {
     width: 40%}
 .forecast-listing-item .middle .day-icon {
     display: none;
 }
-.venue-listing-item .left .venue-sub .venue-address {
+.venue-list-item .left .venue-sub .venue-address {
     width: 60%}
-.venue-listing-item .content {
+.venue-list-item .content {
     word-wrap: break-word;
     width: 80%}
 }html.swipebox-html.swipebox-touch {
