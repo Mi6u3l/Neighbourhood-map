@@ -1,5 +1,5 @@
 <h1>Neighborhood Map</h1>
-<p>Neighborhood Map Project for Udacity Front-end Web Development Nanodegree.</p>
+<p>Neighborhood Map Project.</p>
 <p><a href ="http://mi6u3l.github.io/NeighbourhoodMap">Demo</a></p>
 <h2>References:</h2>
 <ul>
